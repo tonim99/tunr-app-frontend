@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Favorites.css'
 const Favorites = (props) => {
 	
-	const url = 'http://localhost:3000/songs';
+	const url = 'https://tunr-app-api-tm.herokuapp.com/songs';
 
 	return (
 		<div>

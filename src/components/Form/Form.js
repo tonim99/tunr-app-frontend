@@ -6,13 +6,13 @@ const Form = (props) => {
 
 	const submit = (e) => {
 		e.preventDefault();
-		fetch('http://localhost:3000/songs', {
+		fetch('https://tunr-app-api-tm.herokuapp.com/songs', {
 			method: 'POST',
 			body: JSON.stringify({ song }),
 			headers: { 'Content-Type': 'application/json' },
 		})
 			.then((res) => res.json())
-			.then((json) => setSong(json.song))
+			.then((json) => setSong(json.song));
 		e.target.reset()	
 	};
 	return (

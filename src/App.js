@@ -9,7 +9,7 @@ function App() {
   const [songs, setSongs] = useState([])
   // const [favorite, setFavorite] = useState([])
 
-  const url = 'http://localhost:3000/songs';
+  const url = 'https://tunr-app-api-tm.herokuapp.com/songs';
   
   useEffect(() => {
     const makeAPICall = async () => {

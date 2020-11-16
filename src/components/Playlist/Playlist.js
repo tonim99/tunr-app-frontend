@@ -4,7 +4,7 @@ import './Playlist.css'
 const Playlist = (props) => {
 	console.log('playlist props-', props)
 
-	const url = 'http://localhost:3000/songs';
+	const url = 'https://tunr-app-api-tm.herokuapp.com/songs';
 	const { songs } = props;
 	const [song, setSong] = useState(props.songs)
 		const favToggle = (e) => {
