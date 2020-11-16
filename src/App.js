@@ -1,9 +1,9 @@
 import React, { useEffect, useState }from 'react';
 import './App.css';
-import Playlist from './components/Playlist';
-import Favorites from './components/Favorites';
-import Form from './components/Form';
-import Header from './components/Header';
+import Playlist from './components/Playlist/Playlist';
+import Favorites from './components/Favorites/Favorites';
+import Form from './components/Form/Form';
+import Header from './components/Header/Header';
 
 function App() {
   const [songs, setSongs] = useState([])
