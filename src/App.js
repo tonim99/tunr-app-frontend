@@ -7,6 +7,8 @@ import Header from './components/Header/Header';
 
 function App() {
   const [songs, setSongs] = useState([])
+  // const [favorite, setFavorite] = useState([])
+
   const url = 'http://localhost:3000/songs';
   
   useEffect(() => {
@@ -22,13 +24,16 @@ function App() {
       }
     }
     makeAPICall()
-  }, [])
+  }, [songs])
+  // const handleFave = () => {
+    
+  // }
 	return (
 		<div className='App'>
 			<Header />
 			<Playlist songs={songs} key={songs.id}/>
 			<Favorites />
-			<Form />
+			<Form songs={songs} key={songs.id}/>
 		</div>
 	);
 }

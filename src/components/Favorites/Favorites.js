@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Favorites.css'
 const Favorites = (props) => {
+	
+	const url = 'http://localhost:3000/songs';
+
 	return (
 		<div>
 			<h1>Favorite Songs List</h1>

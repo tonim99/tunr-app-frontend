@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Playlist.css'
 
 const Playlist = (props) => {
 	console.log('playlist props-', props)
-	const {songs} = props
+
+	const url = 'http://localhost:3000/songs';
+	const { songs } = props;
+	const [song, setSong] = useState(props.songs)
+		const favToggle = (e) => {
+			e.preventDefault();
+			fetch(`${url}/${songs.id}`, {
+				method: 'PUT',
+				body: JSON.stringify({ songs }),
+				headers: { 'Content-Type': 'application/json' },
+			})
+				.then((res) => res.json())
+				.then((json) => setSong(json.song));
+		};
+	const deleteSong = (e) => {
+		e.preventDefault();
+		fetch(`${url}/${songs.id}`, {
+			method: 'DELETE',
+		})
+		.then((res) => res.json());
+	};
 
 	return (
 		<>
