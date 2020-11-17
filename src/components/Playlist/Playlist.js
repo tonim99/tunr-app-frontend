@@ -1,45 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Playlist.css'
 
 const Playlist = (props) => {
 	console.log('playlist props-', props)
 
-	const url = 'https://tunr-app-api-tm.herokuapp.com/songs';
+	//const url = 'https://tunr-app-api-tm.herokuapp.com/songs';
 	const { songs } = props;
-	const [song, setSong] = useState(props.songs)
-		const favToggle = (e) => {
-			e.preventDefault();
-			fetch(`${url}/${songs.id}`, {
-				method: 'PUT',
-				body: JSON.stringify({ songs }),
-				headers: { 'Content-Type': 'application/json' },
-			})
-				.then((res) => res.json())
-				.then((json) => setSong(json.song));
-		};
-	const deleteSong = (e) => {
-		e.preventDefault();
-		fetch(`${url}/${songs.id}`, {
-			method: 'DELETE',
-		})
-		.then((res) => res.json());
-	};
+	
 
 	return (
 		<>
 			<h1>Playlist 1</h1>
 			{songs &&
-				songs.map((ele, ind) => {
+				songs.map((song) => {
 					return (
-						<ul>
-							<li>
-								{songs[ind].title}
-								<span> {songs[ind].time} </span>
-								<span>{songs[ind].artist}</span>
-								<span>{songs[ind].is_fav} heart icon</span>
-							</li>
-						</ul>
-					)
+						<>
+							<h3>{song.title}</h3>
+							<p> {song.time} </p>
+							<p>{song.artist}</p>
+							<p
+								onClick={() => {
+									props.handleFave(song);
+								}}>
+								heart icon
+							</p>
+							<p
+								onClick={() => {
+									props.deleteSong(song);
+								}}>
+								x
+							</p>
+							{/* {songs[ind].is_fav} */}
+						</>
+					);
 				})
 			}
 		

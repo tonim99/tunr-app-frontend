@@ -14,6 +14,7 @@ const Form = (props) => {
 			.then((res) => res.json())
 			.then((json) => setSong(json.song));
 		e.target.reset()	
+		props.makeAPICall()
 	};
 	return (
 		<div>
