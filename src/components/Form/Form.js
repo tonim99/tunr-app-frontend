@@ -14,28 +14,26 @@ const Form = (props) => {
 			.then((res) => res.json())
 			.then((json) => setSong(json.song));
 		e.target.reset()	
-		props.makeAPICall()
+		props.getPlaylist()
 	};
 	return (
-		<div>
+		<div className="form-container">
 			<h2>ADD A NEW SONG</h2>
-			<form onSubmit={submit}>
-				<label>TITLE</label>
+			<form className="form" onSubmit={submit}>
+				{/* <label>TITLE</label> */}
 				<input
 					type='text'
+					placeholder='TITLE'
 					onChange={(e) => setSong({ ...song, title: e.target.value })}
 				/>
-				<label>ARTIST</label>
+				{/* <label>ARTIST</label> */}
 				<input
 					type='text'
+					placeholder='ARTIST'
 					onChange={(e) => setSong({ ...song, artist: e.target.value })}
 				/>
-				<label>TIME</label>
-				<input
-					type='text'
-					onChange={(e) => setSong({ ...song, time: e.target.value })}
-				/>
-				<input type='submit' value='ADD NEW SONG'/>
+				<br />
+				<input className="add-button" type='submit' value='ADD NEW SONG'/>
 			</form>
 		</div>
 	);

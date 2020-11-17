@@ -1,0 +1,18 @@
+.Playlist {
+    display: flex;
+    flex-direction: column;
+}
+.Playlist h1 {
+    color: rgb(67, 7, 102);
+    text-decoration: underline;
+}
+div.favDelete {
+    display: flex;
+    justify-content: space-between;
+}
+div.favDelete .item {
+    margin: 5px;
+}
+.fas fa-heart {
+    background-color: red;
+}

@@ -6,48 +6,48 @@ import Form from './components/Form/Form';
 import Header from './components/Header/Header';
 
 function App() {
-  const [songs, setSongs] = useState([])
-  //const [selectedSong, setSelectedSong] = useState({})
-  const [favorites, setFavorites] = useState([])
+	const [songs, setSongs] = useState([])
+	const [favorites, setFavorites] = useState([])
+	const url = 'https://tunr-app-api-tm.herokuapp.com/songs';
 
-  const url = 'https://tunr-app-api-tm.herokuapp.com/songs';
-  const makeAPICall = async () => {
+	const getPlaylist = async () => {
 		try {
 			const res = await fetch(`${url}`);
-			const json = await res.json();
-			console.log(json);
-			setSongs(json);
+			const playlist = await res.json();
+			console.log("playlist- ", playlist);
+			setSongs(playlist)
+			const faves = playlist.filter((song) => song.is_fav === true);
+			setFavorites(faves)
 		} catch (err) {
 			console.error(err);
 		}
 	};
-  
-  useEffect(() => {
-    makeAPICall()
-  }, [])
 
-
-  	const handleFave = (favorite) => {
-			setFavorites([...favorites, favorite])
-    };
+	useEffect(() => {
+		getPlaylist()
+	}, [])
     
-		const deleteSong = (song) => {
-			fetch(`${url}/${song.id}`, {
-				method: 'DELETE',
-			}).then((res) => makeAPICall());
-    };
+	const deleteSong = (song) => {
+		fetch(`${url}/${song.id}`, {
+			method: 'DELETE',
+		}).then((res) => getPlaylist());
+	};
     
-  //  const toggleFave = (favorite) => {
-  //   fetch(`${url}/${favorite.id}`, {
-  //     method: 'PUT', 
-  //     body: JSON.stringify({ 
-  //       is_fav: true
-  //     })
-  //   }).then((res) => )
-  //  }
-  // const handleDelete = () => {
+	const toggleFave = (song) => {
+		console.log('song app -', song)
+		fetch(`${url}/${song.id}`, {
+			method: 'PUT', 
+			body: JSON.stringify({ 
+			is_fav: !song.is_fav
+			}),
+			headers: { 'Content-Type': 'application/json' },
+		}).then((res) => getPlaylist())
+	}
 
-  // }
+   	const handleFave = (favorite) => {
+		toggleFave(favorite)
+		getPlaylist()
+	};
 
 	return (
 		<div className='App'>
@@ -58,8 +58,8 @@ function App() {
 				handleFave={handleFave}
 				deleteSong={deleteSong}
 			/>
-			<Favorites favorites={favorites} key={favorites.id} />
-			<Form songs={songs} key={songs.id} makeAPICall={makeAPICall} />
+			<Favorites favorites={favorites} toggleFave={toggleFave} key={favorites.id} />
+			<Form songs={songs} key={songs.id} getPlaylist={getPlaylist} />
 		</div>
 	);
 }

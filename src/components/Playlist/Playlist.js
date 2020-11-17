@@ -9,34 +9,39 @@ const Playlist = (props) => {
 	
 
 	return (
-		<>
+		<div className= "Playlist">
 			<h1>Playlist 1</h1>
 			{songs &&
 				songs.map((song) => {
 					return (
-						<>
-							<h3>{song.title}</h3>
-							<p> {song.time} </p>
-							<p>{song.artist}</p>
-							<p
-								onClick={() => {
-									props.handleFave(song);
-								}}>
-								heart icon
-							</p>
-							<p
-								onClick={() => {
-									props.deleteSong(song);
-								}}>
-								x
-							</p>
-							{/* {songs[ind].is_fav} */}
-						</>
+						<div className='Song'>
+							<h3>
+								{song.title} by {song.artist}
+							</h3>
+							<div className='favDelete'>
+								<p
+									className='item'
+									onClick={() => {
+										console.log('song- ', song);
+										props.handleFave(song);
+									}}>
+									<i class='fas fa-heart'></i>
+								</p>
+
+								<p
+									className='item'
+									onClick={() => {
+										props.deleteSong(song);
+									}}>
+									<i class='fas fa-minus'></i>
+								</p>
+							</div>
+						</div>
 					);
 				})
 			}
 		
-		</>
+		</div>
 	);
 };
 

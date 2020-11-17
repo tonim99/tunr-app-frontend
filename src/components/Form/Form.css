@@ -1,0 +1,20 @@
+.form-container {
+    width: 90%;
+    margin: auto;
+}
+h2 {
+    color: rgb(67, 7, 102);
+    text-decoration: underline;
+}
+
+div .form input {
+    width: 80%;
+    box-sizing: border-box;
+    margin:  10px 0 ;
+    padding: 
+}
+input.add-button {
+    background-color: rgb(25, 3, 36);
+    color: white;
+    margin-top: 20px;
+}

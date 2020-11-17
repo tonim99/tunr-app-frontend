@@ -6,7 +6,6 @@ const Header = (props) => {
 		<header>
 			<h1>TUNR.</h1>
 			<p className='tagline'>FOR ALL YOUR PLAYLIST NEEDS</p>
-			<hr />
 		</header>
 	);
 };
