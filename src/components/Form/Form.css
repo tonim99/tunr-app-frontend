@@ -11,7 +11,7 @@ div .form input {
     width: 80%;
     box-sizing: border-box;
     margin:  10px 0 ;
-    padding: 
+    padding: 5px;
 }
 input.add-button {
     background-color: rgb(25, 3, 36);
