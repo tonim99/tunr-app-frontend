@@ -1,7 +1,6 @@
 import React from 'react';
 import './Favorites.css'
 const Favorites = (props) => {
-	console.log('favorites props- ', props)
 	//const url = 'https://tunr-app-api-tm.herokuapp.com/songs';
 	const { favorites } = props;
 	return (
@@ -16,10 +15,9 @@ const Favorites = (props) => {
 							</h3>
 							<p
 								onClick={() => {
-									console.log('favorite ', favorite);
 									props.toggleFave(favorite);
 								}}>
-								<i class='fas fa-minus'></i>
+								<i className='fas fa-minus'></i>
 							</p>
 						</div>
 					);

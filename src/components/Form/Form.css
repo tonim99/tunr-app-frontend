@@ -1,20 +1,21 @@
 .form-container {
-    width: 90%;
-    margin: auto;
+	/* width: 100%; */
+	margin: 10px;
+	border: 1px solid #931621;
 }
 h2 {
-    color: rgb(67, 7, 102);
-    text-decoration: underline;
+	margin: 10px;
+	color: #931621;
 }
 
 div .form input {
-    width: 80%;
-    box-sizing: border-box;
-    margin:  10px 0 ;
-    padding: 5px;
+	width: 80%;
+	box-sizing: border-box;
+	margin: 10px;
+	padding: 5px;
 }
 input.add-button {
-    background-color: rgb(25, 3, 36);
-    color: white;
-    margin-top: 20px;
+	background-color: #931621;
+	color: #f0f2ef;
+	margin-top: 20px;
 }

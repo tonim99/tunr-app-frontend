@@ -1,18 +1,19 @@
 .App {
-  width: auto;
+	width: auto;
 }
 body {
-  max-width: 1000px;
-  margin: auto;
+	background-color: #f0f2ef;
+	max-width: 1000px;
+	margin: auto;
 }
 ul {
-  list-style: none;
+	list-style: none;
 }
 .Song {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: left;
-    margin: 25px;
-    color: rgb(16, 12, 70);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: left;
+	margin: 25px;
+	color: #152238;
 }

@@ -1,18 +1,24 @@
 .Playlist {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #931621;
+	margin: 10px;
 }
 .Playlist h1 {
-    color: rgb(67, 7, 102);
-    text-decoration: underline;
+	color: #931621;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 div.favDelete {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 div.favDelete .item {
-    margin: 5px;
+	margin: 5px;
 }
-.fas fa-heart {
-    background-color: red;
+i.fa-heart {
+	color: #931621;
+}
+i.fa-trash-alt {
+	color: #152238;
 }

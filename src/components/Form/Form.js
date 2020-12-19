@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './Form.css'
 const Form = (props) => {
-	console.log('form props- ', props)
-	const [song, setSong] = useState(props.song)
+	const [song, setSong] = useState({})
 
 	const submit = (e) => {
 		e.preventDefault();
@@ -20,13 +19,11 @@ const Form = (props) => {
 		<div className="form-container">
 			<h2>ADD A NEW SONG</h2>
 			<form className="form" onSubmit={submit}>
-				{/* <label>TITLE</label> */}
 				<input
 					type='text'
 					placeholder='TITLE'
 					onChange={(e) => setSong({ ...song, title: e.target.value })}
 				/>
-				{/* <label>ARTIST</label> */}
 				<input
 					type='text'
 					placeholder='ARTIST'
